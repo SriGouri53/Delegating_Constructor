@@ -1,0 +1,70 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BankCustomer {
+    private:
+        string name;
+        string adharNumber;
+        string panNumber;
+        string emailId;
+        string phoneNumber;
+
+    public:
+        // Default constructor
+        BankCustomer() {
+            this->name = " ";
+            this->adharNumber = " ";
+            this->panNumber = " ";
+            this->emailId = " ";
+            this->phoneNumber = " ";
+        }
+
+        // Constructor with basic information
+        BankCustomer(string nameArg, string adharNumberArg, string panNumberArg) {
+            this->name = nameArg;
+            this->adharNumber = adharNumberArg;
+            this->panNumber = panNumberArg;
+            this->emailId = " ";
+            this->phoneNumber = " ";
+        }
+
+        // Constructor with all information
+        BankCustomer(string nameArg, string adharNumberArg, string panNumberArg, string emailArg, string phoneArg)
+            : BankCustomer(nameArg, adharNumberArg, panNumberArg) { 
+            this->emailId = emailArg;
+            this->phoneNumber = phoneArg;
+        }
+
+        // Friend function to overload the << operator
+        friend ostream& operator<<(ostream &os, const BankCustomer &customer);
+
+        // Method to print customer info (as a backup or alternative)
+        void printCustomerInfo() {
+            cout << "Name: " << name << endl;
+            cout << "Adhar Number: " << adharNumber << endl;
+            cout << "PAN Number: " << panNumber << endl;
+            cout << "Email ID: " << emailId << endl;
+            cout << "Phone Number: " << phoneNumber << endl;
+        }
+};
+
+// Overload the << operator for BankCustomer
+ostream& operator<<(ostream &os, const BankCustomer &customer) {
+    os << "Name: " << customer.name << endl;
+    os << "Adhar Number: " << customer.adharNumber << endl;
+    os << "PAN Number: " << customer.panNumber << endl;
+    os << "Email ID: " << customer.emailId << endl;
+    os << "Phone Number: " << customer.phoneNumber << endl;
+    return os;
+}
+
+int main() {
+    // Creating a customer object with all details
+    BankCustomer customer1("John Doe", "1234-5678-9012", "ABCDE1234F", "john.doe@example.com", "9876543210");
+    
+    // Using overloaded << operator to print customer info
+    cout << customer1;
+
+    return 0;
+}
