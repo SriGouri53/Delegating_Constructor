@@ -46,7 +46,7 @@ class BankCustomer {
 
 int main() {
     // Creating a customer object with all details
-    BankCustomer customer1("John Doe", "1234-5678-9012", "ABCDE1234F", "john.doe@example.com", "9876543210");
+    BankCustomer customer1("gummy", "1234-1213-1011", "HGHJ344EM", "gummy.doe@example.com", "97563532222");
     customer1.printCustomerInfo();
 
     return 0;
