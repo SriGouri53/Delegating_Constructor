@@ -5,13 +5,16 @@ using namespace std;
 // Interface for Printer
 class IPrinter {
 public:
+    ~virtual IPrinter(){}
     virtual void print(string path) = 0; // Pure virtual function for printing
 };
 
 // Interface for Scanner
 class IScanner {
 public:
+    ~virtual IScanner(){}
     virtual void scan(string path) = 0; // Pure virtual function for scanning
+    
 };
 
 // Printer class implements IPrinter interface
